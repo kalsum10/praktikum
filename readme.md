@@ -1,4 +1,44 @@
-## cara program bekerja
-Ketika program dijalankan oleh user, user akan dilihatkan tampilan data atau elemen yang bisa di _searching_ dengan menggunakan dua metode, yaitu metode _JumpSearch_ dan metode _LinearSearch_. lalu user atau pengguna akan diminta untuk menginputkan algoritma yang ingin dipakai buat _searching_. setelah user menginputkan algoritma _searching_ yang ingin digunakan maka user bisa menggunakan algoritma _searching_ tesebut, kemudian user akan di suruh menginputkan data yang ingin dicari dengan menginputkan data yang tersedia di program. kemudian jika user menginputkan elemen yang ada didalam data atau array maka user akan melihat ouptut dari program "elemen ditemukan di indeks "l". jika user menginputkan elemen yang tidak ada dalam data atau array maka user akan melihat output dari program yaitu "data atau elemen tidak ditemukan".
-##  Fungsionalitas
-Searching data adalah sebuah algoritma yang digunakan untuk mencari sebuah data yang berada di dalam array. dimana user atau pengguna akan dimudahkan untuk mencari data yang berada didalam array dengan menggunakan dua metode yaitu metode _jumpsearch_ dan metode _Linearsearch_
+## Cara kerja program
+Ketika program dijalankan, maka program akan menampilkan output "Masukkan nomor telepon (atau ketik 'selesai' jika sudah selesai):" ketika kita sudah menginputkan nomor telpon dan nama maka kita ketikan selesai. Setelah kita mengetikan selesai maka akan menampilkan histori dari telpon tersebut
+Dan untuk elemen penting dari program ini yaitu 
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def add(self, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+        else:
+            current = self.head
+            while current.next is not None:
+                current = current.next
+            current.next = new_node
+
+    def display(self):
+        if self.head is None:
+            print("Histori telepon kosong.")
+        else:
+            current = self.head
+            print("Histori telepon:")
+            while current is not None:
+                print(current.data)
+                current = current.next
+
+telepon = LinkedList()
+while True:
+    nomor_telepon = input("Masukkan nomor telepon (atau ketik 'selesai' jika sudah selesai): ")
+    if nomor_telepon.lower() == "selesai":
+        break
+    telepon.add(nomor_telepon)
+
+# Tampilkan histori telepon
+telepon.display()
+
+# fungsionalitas 
+Singly linked list adalah sebuah Linked list yang menggunakan sebuah variabel pointer saja untuk menyimpan banyak data dengan metode linked list, suatu daftar isi yang saling berhubungan sehingga akan membuat sekumpulan dari node yang saling terhubung dengan node lain melalui sebuah pointer.
